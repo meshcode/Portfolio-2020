@@ -9,19 +9,19 @@ This is a repository of work showing my activity as a junior software testing ca
 		* Notes and Maps
 		* Links
 		* Tiny Tools
-		* Large Tools (stack)
+		* Large Tools Stack
 	* Web App Test Procedures
 		* Hardware
 		* API
-		* Basic Security (see hacking/pentesting)
+		* Basic Security
 	* Actual Test Items
-		* Smartwatches (time connection)
+		* Smartwatches
 		* Bitcoin core
 		* Bitcoin ATMs
 		* Local Networks
 		* Own websites
 		* Crypto Art NFTs
-		* ProfitTrailer bot
+		* ProfitTrailer Bot
 
 ### 2 - DeepWeb Security
 	* Best Practices
@@ -69,7 +69,6 @@ This is a repository of work showing my activity as a junior software testing ca
 		* Vi Si Ay
 		* Healing Arts
 		* Aspie
-		* Darkside
 		* My experiences in life
 	* Extraterrestrial (open clear light) psychology
 	* Terrestrial Covert (hidden suppressed dark) psychology
