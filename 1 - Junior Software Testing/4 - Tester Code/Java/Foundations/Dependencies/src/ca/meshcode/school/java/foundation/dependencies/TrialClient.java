@@ -1,4 +1,4 @@
-package ca.meshcode;
+package ca.meshcode.school.java.foundation.dependencies;
 
 //base client inherits nothing but will pass on its contents
 public class TrialClient {

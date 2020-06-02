@@ -1,4 +1,4 @@
-package ca.meshcode;
+package ca.meshcode.school.java.foundation.dependencies;
 
 //main file for the package
 public class Main {

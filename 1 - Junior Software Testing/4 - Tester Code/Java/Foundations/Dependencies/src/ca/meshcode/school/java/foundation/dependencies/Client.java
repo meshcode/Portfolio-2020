@@ -1,4 +1,4 @@
-package ca.meshcode;
+package ca.meshcode.school.java.foundation.dependencies;
 
 //EXTENDS means a subclass inherits attributes and methods from superclass,
 // OVERRIDE is just an annotation for the compiler signalling that an inherited method is about to be overwritten and
