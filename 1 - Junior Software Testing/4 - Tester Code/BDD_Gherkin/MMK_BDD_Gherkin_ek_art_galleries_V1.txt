@@ -1,0 +1,19 @@
+website: ewakujawska.com
+
+Feature:
+
+As an artist
+I want to present images of my art in sortable galleries
+To attract art collectors who may browse my works for purchase
+
+Scenario: Art collector can select type of art gallery to sort
+
+Given I'm on main page
+When I select the paintings gallery
+Then only the paintings are displayed in default sorting method
+
+Scenario: Art collector can select a series of works in the paintings gallery
+
+Given I'm on the paintings gallery page
+When I select a series by title
+Then only those paintings are displayed from that particular series
