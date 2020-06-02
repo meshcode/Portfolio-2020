@@ -9,19 +9,21 @@ public class Main {
         //
         //create a type of client by assigning the class to a variable and running the constructor
         TrialClient trial = new TrialClient();
-        Client klient = new Client();
+        Client client = new Client();
         PremiumClient premium = new PremiumClient();
         //
         //Create a visual text output of dependencies:
         System.out.println("Who bought what with dependencies:");
         System.out.println("**********************************");
         System.out.println();
-        System.out.println("The trial client tried:");
         //run the bought method of trial client, this outputs its ownership
+        System.out.println("The trial client tried:");
         trial.bought();
+        //
         System.out.println();
         System.out.println("The standard client bought:");
-        klient.bought();
+        client.bought();
+        //
         System.out.println();
         System.out.println("The premium client received:");
         premium.bought();
