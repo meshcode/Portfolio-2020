@@ -1,1 +1,5 @@
 _TEMP_DEL
+SDA JAVA
+out
+.idea
+Dependencies.iml
