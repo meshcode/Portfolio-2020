@@ -1,8 +1,12 @@
+// personal directories
 _TEMP_DEL
 SDA JAVA
+// directories in IntelliJ Java projects
 out
 .idea
+target
+// files in IntelliJ Java projects
 Dependencies.iml
 Tree.iml
 Distances.iml
-target
+Selenium_Webdriver.iml
