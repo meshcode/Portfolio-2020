@@ -2,19 +2,15 @@
 This is a repository of work showing my activity as a junior software testing candidate.
 
 ### 1 - Junior Software Testing
-	* ISTQB FL Theory
+	* 1.1 - Tester Theory
 		* Notes and Maps
 		* Links
-	* Tools
+	* 1.2 - Tester Tools
 		* Notes and Maps
 		* Links
 		* Tiny Tools
 		* Large Tools Stack
-	* Web App Test Procedures
-		* Hardware
-		* API
-		* Basic Security
-	* Actual Test Items
+	* 1.3 - Items to Test
 		* Smartwatches
 		* Bitcoin core
 		* Bitcoin ATMs
@@ -22,6 +18,14 @@ This is a repository of work showing my activity as a junior software testing ca
 		* Own websites
 		* Crypto Art NFTs
 		* ProfitTrailer Bot
+	* 1.4 - Tester Code
+		* 1.4.1 - Java
+		* 1.4.2 - Selenium Webdriver
+		* 1.4.3 - BDD_Gherkin
+	* 1.5 - Web App Test Procedures
+		* Hardware
+		* API
+		* Basic Security
 
 ### 2 - DeepWeb Security
 	* Best Practices
